@@ -1,54 +1,22 @@
 <template>
-  <button type="button" :class="classes" @click="onClick" :style="style">{{ label }}</button>
+  <button class="m-2 text-primary-500 bg-yellow-500">text</button>
 </template>
 
-<script>
-import './button.css';
-
-export default {
-  name: 'my-button',
-
-  props: {
-    label: {
-      type: String,
-      required: true,
-    },
-    primary: {
-      type: Boolean,
-      default: false,
-    },
-    size: {
-      type: String,
-      default: 'medium',
-      validator: function (value) {
-        return ['small', 'medium', 'large'].indexOf(value) !== -1;
-      },
-    },
-    backgroundColor: {
-      type: String,
-    },
+<script lang="ts">
+import { defineComponent, PropType, ref } from "@vue/composition-api";
+import "tailwindcss/tailwind.css";
+export default defineComponent({
+  setup() {
+    const text = ref("yes");
+    return {
+      text,
+    };
   },
-
-  computed: {
-    classes() {
-      return {
-        'storybook-button': true,
-        'storybook-button--primary': this.primary,
-        'storybook-button--secondary': !this.primary,
-        [`storybook-button--${this.size}`]: true,
-      };
-    },
-    style() {
-      return {
-        backgroundColor: this.backgroundColor,
-      };
-    },
-  },
-
-  methods: {
-    onClick() {
-      this.$emit('onClick');
-    },
-  },
-};
+});
 </script>
+
+<style lang="scss" scoped>
+button {
+  @apply p-2;
+}
+</style>
