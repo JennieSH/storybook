@@ -1,62 +1,52 @@
-// import MyButton from './Button.vue';
-
+import Button from "./Button.vue";
 // export default {
-//   title: 'Example/Button',
-//   component: MyButton,
+//   component: Button,
+//   title: "Components/Button",
 //   argTypes: {
-//     backgroundColor: { control: 'color' },
-//     size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
+//     backgroundColor: { control: "color" },
+//     size: { control: { type: "select", options: ["small", "medium", "large"] } },
 //   },
 // };
 
+// // const Template = (args, { argTypes }) => ({
+// //   props: Object.keys(argTypes),
+// //   components: { MyButton },
+// //   template: '<my-button @onClick="onClick" v-bind="$props" />',
+// // });
+
+// //👇 We create a “template” of how args map to rendering
 // const Template = (args, { argTypes }) => ({
+//   components: { Button },
 //   props: Object.keys(argTypes),
-//   components: { MyButton },
-//   template: '<my-button @onClick="onClick" v-bind="$props" />',
+//   setup() {
+//     //👇 The args will now be passed down to the template
+//     return { args };
+//   },
+//   template: "<Button v-bind='$props'/>",
 // });
 
+// //👇 Each story then reuses that template
 // export const Primary = Template.bind({});
-// Primary.args = {
-//   primary: true,
-//   label: 'Button',
-// };
+// YourComponent.stories.js
 
-// export const Secondary = Template.bind({});
-// Secondary.args = {
-//   label: 'Button',
-// };
-
-// export const Large = Template.bind({});
-// Large.args = {
-//   size: 'large',
-//   label: 'Button',
-// };
-
-// export const Small = Template.bind({});
-// Small.args = {
-//   size: 'small',
-//   label: 'Button',
-// };
-import Button from "./Button.vue";
-
+//👇 This default export determines where your story goes in the story list
 export default {
-  component: Button,
   title: "Components/Button",
+  component: Button,
+  argTypes: {
+    background: { control: { type: "color" } },
+  },
 };
 
-//👇 We create a “template” of how args map to rendering
-const Template = (args) => ({
+const Template = (args, { argTypes }) => ({
   components: { Button },
-  setup() {
-    //👇 The args will now be passed down to the template
-    return { args };
-  },
-  template: '<Button v-bind="args" />',
+  props: Object.keys(argTypes),
+  // setup() {
+  //   return { args };
+  // },
+  template: '<Button :background="background" />',
 });
 
 //👇 Each story then reuses that template
 export const Primary = Template.bind({});
-Primary.args = {
-  primary: true,
-  label: "Primary",
-};
+Primary.args = { background: "#fd0ss" };
