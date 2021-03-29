@@ -22,6 +22,7 @@ export default {
         category: "Sizes",
       },
     },
+    onClick: { action: "按下按鈕" },
   },
 } as Meta<ButtonProps>;
 
@@ -32,7 +33,8 @@ const Template: Story<ButtonProps> = (args, { argTypes }) => ({
   // setup() {
   //   return { args };
   // },
-  template: "<Button :background=\"background\" :title=\"title\" :size=\"size\" :rounded=\"rounded\"/>",
+  template:
+    '<Button :background="background" :title="title" :size="size" :rounded="rounded" @onClick="onClick"/>',
 });
 
 // 👇 Each story then reuses that template

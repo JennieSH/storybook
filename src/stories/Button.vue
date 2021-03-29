@@ -3,6 +3,7 @@
     class="m-2 text-primary-500"
     :class="[`btn--${buttonSize}`, rounded ? 'rounded' : '']"
     :style="`backgroundColor:${background}`"
+    @click="clickHandler"
   >
     {{ title }}
   </button>
@@ -32,9 +33,12 @@ export default defineComponent({
       default: false,
     },
   },
-  setup(props) {
+  setup(props, context) {
     const buttonSize = computed(() => props.size || ButtonSize.SM);
-    return { buttonSize };
+    const clickHandler = (): void => {
+      context.emit("onClick", "hello");
+    };
+    return { buttonSize, clickHandler };
   },
 });
 </script>
