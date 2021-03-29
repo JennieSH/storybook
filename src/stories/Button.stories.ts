@@ -1,9 +1,9 @@
 import Button from "./Button.vue";
-//import { Story, Meta } from "@storybook/vue/types-6-0";
+// import { Story, Meta } from "@storybook/vue/types-6-0";
 import { Story, Meta } from "../types/StoryBookTypes";
 import { ButtonProps, ButtonSize } from "./ButtonType";
 
-//👇 This default export determines where your story goes in the story list
+// 👇 This default export determines where your story goes in the story list
 export default {
   title: "Components/Button",
   component: Button,
@@ -32,9 +32,14 @@ const Template: Story<ButtonProps> = (args, { argTypes }) => ({
   // setup() {
   //   return { args };
   // },
-  template: '<Button :background="background" :title="title" :size="size" :rounded="rounded"/>',
+  template: "<Button :background=\"background\" :title=\"title\" :size=\"size\" :rounded=\"rounded\"/>",
 });
 
-//👇 Each story then reuses that template
+// 👇 Each story then reuses that template
 export const Primary = Template.bind({});
-Primary.args = { background: "#000", title: "this is a button", size: "sm", rounded: false };
+Primary.args = {
+  background: "#000",
+  title: "this is a button",
+  size: "sm",
+  rounded: false,
+};

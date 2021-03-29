@@ -1,4 +1,4 @@
-//https://gist.github.com/rabelloo/bae0397d6a331d939eacdb3e8849220f
+// https://gist.github.com/rabelloo/bae0397d6a331d939eacdb3e8849220f
 import { Component, AsyncComponent } from "vue";
 import type { Meta as BaseMeta, Story as BaseStory } from "@storybook/vue/types-6-0";
 import type { ArgType as BaseArgType, StoryContext } from "@storybook/addons";

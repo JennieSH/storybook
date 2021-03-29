@@ -1,9 +1,11 @@
 <template>
   <button
     class="m-2 text-primary-500"
-    :class="[`btn--${buttonSize}`,rounded? 'rounded' : '']"
+    :class="[`btn--${buttonSize}`, rounded ? 'rounded' : '']"
     :style="`backgroundColor:${background}`"
-  >{{ title }}{{buttonSize}}</button>
+  >
+    {{ title }}
+  </button>
 </template>
 
 <script lang="ts">
@@ -23,8 +25,7 @@ export default defineComponent({
     },
     size: {
       type: String as PropType<ButtonSize>,
-      validator: (value: ButtonSize) =>
-        Object.values(ButtonSize).indexOf(value) !== -1,
+      validator: (value: ButtonSize) => Object.values(ButtonSize).indexOf(value) !== -1,
     },
     rounded: {
       type: Boolean,
