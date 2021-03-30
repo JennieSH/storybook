@@ -1,5 +1,6 @@
 const path = require("path");
 module.exports = {
+  // 自訂的Webpack設定
   webpackFinal: async (config, { configType }) => {
     // configType has a value of 'DEVELOPMENT' or 'PRODUCTION'
     // You can change the configuration based on that.
@@ -27,15 +28,9 @@ module.exports = {
     // Return the altered config
     return config;
   },
-  stories: [
-    // "../src/*/.stories.mdx",
-    // "../src/*/.stories.@(js|jsx|ts|tsx)",
-    // "../src/*/variables/.stories.@(js|jsx|ts|tsx)",
-    // "../src/*/components/.stories.@(js|jsx|ts|tsx)",
-    // "../src/*/containers/.stories.@(js|jsx|ts|tsx)",
-    "../src/**/*.stories.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)",
-  ],
+  // story files 放置的位置
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  // 設定要使用的addons清單
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",

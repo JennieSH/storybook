@@ -4,9 +4,7 @@
     :class="[`btn--${buttonSize}`, rounded ? 'rounded' : '']"
     :style="`backgroundColor:${background}`"
     @click="clickHandler"
-  >
-    {{ title }}
-  </button>
+  >{{ title }}</button>
 </template>
 
 <script lang="ts">
@@ -26,7 +24,8 @@ export default defineComponent({
     },
     size: {
       type: String as PropType<ButtonSize>,
-      validator: (value: ButtonSize) => Object.values(ButtonSize).indexOf(value) !== -1,
+      validator: (value: ButtonSize) =>
+        Object.values(ButtonSize).indexOf(value) !== -1,
     },
     rounded: {
       type: Boolean,
